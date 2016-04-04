@@ -1,0 +1,70 @@
+{
+    "public": {
+        "plans": [
+            {
+                "name": "tiny",
+                "amount": {
+                    "cents": 5000,
+                    "usd": "$5"
+                },
+                "limit": 1,
+                "interval": "month"
+            },
+            {
+                "name": "small",
+                "amount": {
+                    "cents": 10000,
+                    "usd": "$10"
+                },
+                "limit": 5,
+                "interval": "month"
+            },
+            {
+                "name": "medium",
+                "amount": {
+                    "cents": 15000,
+                    "usd": "$15"
+                },
+                "limit": 10,
+                "interval": "month"
+            },
+            {
+                "name": "large",
+                "amount": {
+                    "cents": 20000,
+                    "usd": "$20"
+                },
+                "limit": 20,
+                "interval": "month"
+            }
+        ],
+        "stripe": {
+            "testPublishableKey": "pk_test_PFlK4vZgtubSwsSfViwqt70P",
+            "livePublishableKey": "pk_live_BtJet7BRH3V3dyjLwbx9WmAs"
+        }
+    },
+    "private": {
+        "stripe": {
+            "testSecretKey": "sk_test_5bTL7D0Q35sF14U3FHGjvTGT",
+            "liveSecretKey": "sk_live_qldLHvfXnTFLV4Da5CbPdM69"
+        },
+        "meteorAccounts": {
+            "facebook": {
+                "appId": "968927846479823",
+                "secret": "8105d328da8abd82b71fe6cdcaa18dc2"
+            },
+            "google": {
+                "clientId": "301895384510-dd13bi9ca0bq8tnp12kpn7ueqsd7rem1.apps.googleusercontent.com",
+                "secret": "EHeK1iEG3GGFM0IDW6npClgg"
+            },
+            "twitter": {
+                "clientId": "pDXWztaWcf9aPuUxu9WhhjYcc",
+                "secret": "jp795vFQHR0CUD6Sd96pFrf4pT05yaokSOah9fXcIXMjCLwIW1"
+            },
+            "instagram": {
+                "clientId": "debf1451b8254aa4bfc2cf1af8077faa",
+                "secret": "c64ef2bade384103b3069292c6ea0298"
+            }
+        }
+    }
+}
