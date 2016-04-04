@@ -10,27 +10,27 @@ PS: it's just my own starter app structure.
 
 #Packages:
 
-/ meteor libraries
+# meteor libraries
 meteor-base
 ecmascript
 es5-shim
 check
 tracker
 
-/ standard libraries
+# standard libraries
 jquery
 underscore
 less
 twbs:bootstrap
 
-/ ui
+# ui
 blaze-html-templates
 reactive-dict
 reactive-var
 aldeed:template-extension
 percolate:momentum
 
-/ data
+# data
 mongo
 aldeed:simple-schema
 aldeed:collection2
@@ -39,38 +39,37 @@ reywood:publish-composite
 mdg:validated-method
 mdg:validation-error
 
-/ routing
+# routing
 kadira:flow-router@2.11.0
 kadira:blaze-layout
 arillo:flow-router-helpers
 zimme:active-route
 
-/ i18n
+# i18n
 tap:i18n
 
-/ accounts
+# accounts
 accounts-password
-/useraccounts:unstyled
 useraccounts:bootstrap
 useraccounts:flow-routing
 softwarerero:accounts-t9n
 
-/ mobile
+# mobile
 crosswalk
 mobile-experience
 chriswessels:hammer
 
-/ production
+# production
 juliancwirko:postcss@1.0.0-beta.11
 standard-minifier-js
 ddp-rate-limiter
 app-prod-security
 
-/ rest apis
+# rest apis
 simple:rest-accounts-password
 simple:rest
 
-/ testing
+# testing
 factory
 publication-collector
 stub-collections
