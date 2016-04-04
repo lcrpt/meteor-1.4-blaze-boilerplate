@@ -1,0 +1,29 @@
+<template name="App_navHeader">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">leodls Boilerplate</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="{{isActiveRoute 'App_home'}}"><a href="{{pathFor 'App_home'}}">{{_ 'Home'}} <span class="sr-only">(current)</span></a></li>
+          <li class="{{isActiveRoute 'App_dashboard'}}"><a href="{{pathFor 'App_dashboard'}}">{{_ 'Dashboard'}}</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          {{#if currentUser}}
+            <li><a class="js-logout btn-secondary">{{_ 'Logout'}}</a></li>
+          {{else}}
+              <li class="{{isActiveRoute 'signin'}}"><a href="{{pathFor 'signin'}}" class="btn-secondary">{{_ 'Sign In'}}</a></li>
+              <li class="{{isActiveRoute 'join'}}"><a href="{{pathFor 'join'}}" class="btn-secondary">{{_ 'Join'}}</a></li>
+          {{/if}}
+        </ul>
+      </div>
+    </div>
+  </nav>
+</template>
