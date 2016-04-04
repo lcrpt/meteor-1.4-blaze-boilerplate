@@ -10,7 +10,7 @@ PS: it's just my own starter app structure.
 
 #Packages:
 
-** meteor libraries **
+**meteor libraries**
 > - meteor-base
 > - ecmascript
 > - es5-shim
