@@ -11,11 +11,11 @@ PS: it's just my own starter app structure.
 #Packages:
 
 # meteor libraries
-meteor-base
-ecmascript
-es5-shim
-check
-tracker
+> meteor-base
+> ecmascript
+> es5-shim
+> check
+> tracker
 
 # standard libraries
 jquery
