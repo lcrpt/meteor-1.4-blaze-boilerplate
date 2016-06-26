@@ -1,6 +1,6 @@
 # Boilerplate: Meteor 1.3 + Blaze
 
-Build with Flow Router, UserAccount:core, Bootstrap, Collection2, Autoform... 
+Build with Flow Router, UserAccount:core, Bootstrap, Collection2, Autoform, Users Roles, Cluster Micro Services
 
 To install the App Structure just run:
 npm install

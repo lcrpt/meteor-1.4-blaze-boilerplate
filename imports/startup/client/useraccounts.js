@@ -36,5 +36,6 @@ AccountsTemplates.configure({
     title: {
       forgotPwd: 'Recover Your Password'
     }
-  }
+  },
+
 });

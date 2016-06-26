@@ -1,66 +1,63 @@
-import { Mongo } from 'meteor/mongo';
-import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { Mongo } from 'meteor/mongo'
+import { SimpleSchema } from 'meteor/aldeed:simple-schema'
+// import { UserInfosSchema } from 'imports/api/users/users'
 
-// create class
 class PostsCollection extends Mongo.Collection {
-  // Insert datas
-  insert(datas, callback){
-    const postsDatas = datas;
-    // super call the parent object
-    return super.insert(postsDatas, callback);
+  insert(doc, callback) {
+    const ourDoc = doc;
+    const result = super.insert(ourDoc, callback);
+    return result;
   }
-  // Update Datas
-  update(selector, callback){
-    Posts.update({_id: selector._id},
-      {$set: { name: selector.name }}
-    );
-    return super.remove(selector, callback);
+  update(selector, modifier) {
+    const result = super.update(selector, modifier);
+    return result;
   }
-  // Update Datas
-  remove(selector, callback){
-    Posts.remove({_id: selector._id});
-    return super.remove(selector, callback);
+  remove(selector) {
+    const todos = this.find(selector).fetch();
+    const result = super.remove(selector);
+    return result;
   }
 }
 
-// Export Posts Global Namespace
 export const Posts = new PostsCollection('Posts');
 
-// allow db operations
-Projects.allow({
+Posts.allow({
   insert: () => true,
   update: () => true,
   remove: () => true
 });
-// deny db operations
-Projects.deny({
+
+Posts.deny({
   insert: () => false,
   update: () => false,
   remove: () => false
 });
 
-// Posts Schema [Collection 2, SimpleSchema]
 Posts.schema = new SimpleSchema({
-  status: {
-    type: Number,
-    optional: true,
-    autoform: {
-      type: 'hidden'
-    }
-  },
-  name: {
+  title: {
     type: String,
-    optional: true,
-    label: 'Name',
     max: 200,
-    min: 10
+    min: 10,
   },
   description: {
     type: String,
-    optional: false,
-    label: 'Description',
     max: 1000,
-    min: 1
+    min: 1,
+  },
+  status: {
+    type: String,
+    optional: true,
+  },
+  // userInfos: {
+  //   type: UserInfosSchema
+  // },
+  like: {
+    type: [String],
+    optional: true,
+  },
+  type: {
+    type: Number,
+    optional: true,
   },
   userId: {
     type: String,
@@ -69,9 +66,6 @@ Posts.schema = new SimpleSchema({
       if (this.isInsert) {
         return this.userId;
       }
-    },
-    autoform: {
-      type: 'hidden'
     }
   },
   createdAt: {
@@ -81,27 +75,36 @@ Posts.schema = new SimpleSchema({
       if (this.isInsert) {
         return new Date();
       }
-    },
-    autoform: {
-      type: 'hidden'
     }
-  }
+  },
+  lastUpdated: {
+    type: Date,
+    label: 'CreatedAt',
+    autoValue: function(){
+      if (this.isUpdate || this.isUpsert) {
+        return new Date();
+      }
+    }
+  },
 });
 
-// attach schema to Posts Collections
 Posts.attachSchema(Posts.schema);
 
-// This represents the keys from Lists objects that should be published
-// to the client. If we add secret properties to List objects, don't list
-// them here to keep them private to the server.
-Lists.publicFields = {
+
+Posts.publicFields = {
   name: 1,
   description: 1,
   userId: 1,
   createdAt: 1,
 };
 
-// Helpers
-Posts.helpers({
 
+Posts.helpers({
+  editableBy(userId) {
+    if (!this.userId) {
+      return true;
+    }
+
+    return this.userId === userId;
+  },
 });
