@@ -6,6 +6,11 @@ To install the App Structure just run:
 npm install
 meteor
 
+**Next Features:**
+> - Add Posts CRUD
+> - Add Micros services with Meteor hacks Cluster
+> - Add display posts
+> - Add Search engine with reactive var/dict 
 PS: it's just my own starter app structure.
 
 #Packages:
