@@ -2,10 +2,9 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import { AccountsTemplates } from 'meteor/useraccounts:core';
 
-import '../../ui/layouts/app-body.js';
-import '../../ui/pages/root-redirector.js';
-import '../../ui/pages/app-not-found.js';
-import '../../ui/pages/app-timeline.js';
+import '/imports/ui/layouts/app-body.js';
+import '/imports/ui/pages/app-not-found.js';
+import '/imports/ui/pages/app-timeline.js';
 
 FlowRouter.route('/', {
   name: 'App_timeline',

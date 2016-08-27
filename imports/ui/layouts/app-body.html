@@ -1,17 +1,9 @@
 <template name="App_body">
   {{> App_navHeader}}
-
   <div class="content-overlay"></div>
-
   <div id="content-container">
-    {{#momentum plugin="fade"}}
-      {{#if Template.subscriptionsReady}}
-        <div class="container">
-          {{> Template.dynamic template=main}}
-        </div>
-      {{else}}
-        {{> App_loading}}
-      {{/if}}
-    {{/momentum}}
+    <div class="container">
+      {{> Template.dynamic template=main}}
+    </div>
   </div>
 </template>

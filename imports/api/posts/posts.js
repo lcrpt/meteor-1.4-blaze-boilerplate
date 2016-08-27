@@ -22,15 +22,15 @@ class PostsCollection extends Mongo.Collection {
 export const Posts = new PostsCollection('Posts');
 
 Posts.allow({
-  insert: () => true,
-  update: () => true,
-  remove: () => true
-});
-
-Posts.deny({
   insert: () => false,
   update: () => false,
   remove: () => false
+});
+
+Posts.deny({
+  insert: () => true,
+  update: () => true,
+  remove: () => true
 });
 
 Posts.schema = new SimpleSchema({
