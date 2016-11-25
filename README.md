@@ -3,13 +3,13 @@
 Build with Flow Router, UserAccount:core, Bootstrap, Collection2, Autoform, Users Roles, Cluster Micro Services...
 
 To install the App just run:
-`meteor npm install`
-`npm run dev`
+<br/>`meteor npm install`
+<br/>`npm run dev`
 
 Others commands:
-tests: `npm run tests`
-pretest: `npm run pretest`
-lint: `npm run lint`
+<br/>tests: `npm run tests`
+<br/>pretest: `npm run pretest`
+<br/>lint: `npm run lint`
 
 **Next Features:**
 > - Add Posts CRUD
