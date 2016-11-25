@@ -1,16 +1,21 @@
-# Boilerplate: Meteor 1.3 + Blaze
+# Boilerplate: Meteor 1.4 + Blaze
 
-Build with Flow Router, UserAccount:core, Bootstrap, Collection2, Autoform, Users Roles, Cluster Micro Services
+Build with Flow Router, UserAccount:core, Bootstrap, Collection2, Autoform, Users Roles, Cluster Micro Services...
 
-To install the App Structure just run:
-npm install
-meteor
+To install the App just run:
+`meteor npm install`
+`npm run dev`
+
+Others commands:
+tests: `npm run tests`
+pretest: `npm run pretest`
+lint: `npm run lint`
 
 **Next Features:**
 > - Add Posts CRUD
 > - Add Micros services with Meteor hacks Cluster
 > - Add display posts
-> - Add Search engine with reactive var/dict 
+> - Add Search engine with reactive var/dict
 PS: it's just my own starter app structure.
 
 #Packages:

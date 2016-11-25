@@ -1,36 +1,37 @@
-import { Mongo } from 'meteor/mongo'
-import { SimpleSchema } from 'meteor/aldeed:simple-schema'
-// import { UserInfosSchema } from 'imports/api/users/users'
+import { Mongo } from 'meteor/mongo';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 class PostsCollection extends Mongo.Collection {
   insert(doc, callback) {
     const ourDoc = doc;
     const result = super.insert(ourDoc, callback);
+
     return result;
   }
   update(selector, modifier) {
     const result = super.update(selector, modifier);
+
     return result;
   }
   remove(selector) {
-    const todos = this.find(selector).fetch();
     const result = super.remove(selector);
+
     return result;
   }
 }
 
-export const Posts = new PostsCollection('Posts');
+const Posts = new PostsCollection('Posts');
 
 Posts.allow({
   insert: () => false,
   update: () => false,
-  remove: () => false
+  remove: () => false,
 });
 
 Posts.deny({
   insert: () => true,
   update: () => true,
-  remove: () => true
+  remove: () => true,
 });
 
 Posts.schema = new SimpleSchema({
@@ -48,9 +49,6 @@ Posts.schema = new SimpleSchema({
     type: String,
     optional: true,
   },
-  // userInfos: {
-  //   type: UserInfosSchema
-  // },
   like: {
     type: [String],
     optional: true,
@@ -62,34 +60,27 @@ Posts.schema = new SimpleSchema({
   userId: {
     type: String,
     label: 'userId',
-    autoValue: function(){
-      if (this.isInsert) {
-        return this.userId;
-      }
-    }
+    autoValue() {
+      return this.isInsert ? this.userId : this.unset();
+    },
   },
   createdAt: {
     type: Date,
     label: 'CreatedAt',
-    autoValue: function(){
-      if (this.isInsert) {
-        return new Date();
-      }
-    }
+    autoValue() {
+      return this.isInsert ? new Date() : this.unset();
+    },
   },
   lastUpdated: {
     type: Date,
     label: 'CreatedAt',
-    autoValue: function(){
-      if (this.isUpdate || this.isUpsert) {
-        return new Date();
-      }
-    }
+    autoValue() {
+      return this.isUpdate || this.isUpsert ? new Date() : this.unset();
+    },
   },
 });
 
 Posts.attachSchema(Posts.schema);
-
 
 Posts.publicFields = {
   name: 1,
@@ -97,7 +88,6 @@ Posts.publicFields = {
   userId: 1,
   createdAt: 1,
 };
-
 
 Posts.helpers({
   editableBy(userId) {
@@ -108,3 +98,5 @@ Posts.helpers({
     return this.userId === userId;
   },
 });
+
+export { Posts };
